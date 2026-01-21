@@ -8,7 +8,7 @@ import (
 // ReceivedEmail provides the structure for the response from the Receiving.Get call.
 type ReceivedEmail struct {
 	Id          string               `json:"id"`
-	Object      string               `json:"object"` // Always "inbound" for received emails
+	Object      string               `json:"object"` // Always "email" for received emails
 	To          []string             `json:"to"`
 	From        string               `json:"from"`
 	CreatedAt   string               `json:"created_at"`
@@ -19,7 +19,9 @@ type ReceivedEmail struct {
 	Cc          []string             `json:"cc"`
 	ReplyTo     []string             `json:"reply_to"`
 	Headers     map[string]string    `json:"headers"`
+	MessageId   string               `json:"message_id"`
 	Attachments []ReceivedAttachment `json:"attachments"`
+	Raw         RawEmail             `json:"raw"`
 }
 
 // ListReceivedEmail provides the structure for items in the Receiving.List call.
@@ -33,6 +35,7 @@ type ListReceivedEmail struct {
 	Bcc         []string             `json:"bcc"`
 	Cc          []string             `json:"cc"`
 	ReplyTo     []string             `json:"reply_to"`
+	MessageId   string               `json:"message_id"`
 	Attachments []ReceivedAttachment `json:"attachments"`
 }
 
@@ -50,6 +53,11 @@ type ReceivedAttachment struct {
 	ContentType        string `json:"content_type"`
 	ContentDisposition string `json:"content_disposition"`
 	ContentId          string `json:"content_id"`
+}
+
+type RawEmail struct {
+	DownloadUrl string `json:"download_url"`
+	ExpiresAt   string `json:"expires_at"`
 }
 
 // ReceivingSvc handles operations for received/inbound emails
