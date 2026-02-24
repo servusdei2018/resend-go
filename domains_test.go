@@ -18,7 +18,7 @@ func TestCreateDomain(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"id": "4dd369bc-aa82-4ff3-97de-514ae3000ee0",

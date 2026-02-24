@@ -579,7 +579,7 @@ func TestSendEmailWithTemplateAndVariables(t *testing.T) {
 		Subject: "Welcome to our service",
 		Template: &EmailTemplate{
 			Id: "user-welcome",
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"name": "John Doe",
 				"age":  25,
 			},
@@ -686,7 +686,7 @@ func TestSendEmailWithTemplateAndOverrides(t *testing.T) {
 		},
 		Template: &EmailTemplate{
 			Id: "newsletter-template",
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"title": "Custom Newsletter",
 			},
 		},
@@ -733,7 +733,7 @@ func TestSendEmailWithTemplateAndContext(t *testing.T) {
 		Subject: "Context Test",
 		Template: &EmailTemplate{
 			Id: "context-template",
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"contextVar": "test",
 			},
 		},
@@ -781,7 +781,7 @@ func TestSendEmailWithTemplateComplexVariables(t *testing.T) {
 		Subject: "Complex Variables Test",
 		Template: &EmailTemplate{
 			Id: "complex-template",
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"count": 42,
 			},
 		},

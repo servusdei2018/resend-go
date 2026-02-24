@@ -136,7 +136,7 @@ func TestCreateTemplateWithAllFields(t *testing.T) {
 		assert.Equal(t, "Hello", req.Text)
 
 		// ReplyTo can be string or []string
-		replyTo, ok := req.ReplyTo.([]interface{})
+		replyTo, ok := req.ReplyTo.([]any)
 		assert.True(t, ok)
 		assert.Equal(t, 2, len(replyTo))
 		assert.Equal(t, "support@example.com", replyTo[0].(string))
@@ -736,8 +736,8 @@ func TestGetTemplateWithMultipleReplyTo(t *testing.T) {
 	assert.Equal(t, "multi-reply-to-id", resp.Id)
 	assert.NotNil(t, resp.ReplyTo)
 
-	// ReplyTo is []interface{} when decoded from JSON
-	replyTo, ok := resp.ReplyTo.([]interface{})
+	// ReplyTo is []any when decoded from JSON
+	replyTo, ok := resp.ReplyTo.([]any)
 	assert.True(t, ok)
 	assert.Equal(t, 2, len(replyTo))
 	assert.Equal(t, "support@example.com", replyTo[0].(string))
@@ -928,7 +928,7 @@ func TestUpdateTemplateWithAllFields(t *testing.T) {
 		assert.Equal(t, "Updated Text", req.Text)
 
 		// ReplyTo can be string or []string
-		replyTo, ok := req.ReplyTo.([]interface{})
+		replyTo, ok := req.ReplyTo.([]any)
 		assert.True(t, ok)
 		assert.Equal(t, 1, len(replyTo))
 		assert.Equal(t, "updated@example.com", replyTo[0].(string))

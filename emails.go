@@ -19,7 +19,7 @@ type EmailTemplate struct {
 	// Id is the template ID or alias to use for this email
 	Id string `json:"id"`
 	// Variables are the key-value pairs to populate the template placeholders
-	Variables map[string]interface{} `json:"variables,omitempty"`
+	Variables map[string]any `json:"variables,omitempty"`
 }
 
 // SendEmailRequest is the request object for the Send call.

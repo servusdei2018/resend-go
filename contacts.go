@@ -56,8 +56,8 @@ type CreateContactRequest struct {
 	// Properties are custom key-value pairs for global contacts (when audience_id is omitted).
 	// NOTE: Currently, the Resend API only accepts string values for properties.
 	// Non-string values (numbers, booleans, etc.) will be rejected by the API with a validation error.
-	// Example: Properties: map[string]interface{}{"tier": "premium", "age": "30", "active": "true"}
-	Properties map[string]interface{} `json:"properties,omitempty"`
+	// Example: Properties: map[string]any{"tier": "premium", "age": "30", "active": "true"}
+	Properties map[string]any `json:"properties,omitempty"`
 }
 
 type UpdateContactRequest struct {
@@ -70,8 +70,8 @@ type UpdateContactRequest struct {
 	// Properties are custom key-value pairs for global contacts (when audience_id is omitted).
 	// NOTE: Currently, the Resend API only accepts string values for properties.
 	// Non-string values (numbers, booleans, etc.) will be rejected by the API with a validation error.
-	// Example: Properties: map[string]interface{}{"tier": "premium", "age": "30", "active": "true"}
-	Properties      map[string]interface{} `json:"properties,omitempty"`
+	// Example: Properties: map[string]any{"tier": "premium", "age": "30", "active": "true"}
+	Properties      map[string]any `json:"properties,omitempty"`
 	unsubscribedSet bool                   `json:"-"`
 }
 
@@ -115,7 +115,7 @@ type Contact struct {
 	LastName     string                 `json:"last_name"`
 	CreatedAt    string                 `json:"created_at"`
 	Unsubscribed bool                   `json:"unsubscribed"`
-	Properties   map[string]interface{} `json:"properties,omitempty"` // Custom properties for global contacts (currently API only returns string values)
+	Properties   map[string]any `json:"properties,omitempty"` // Custom properties for global contacts (currently API only returns string values)
 }
 
 // Create creates a new Contact based on the given params
@@ -353,7 +353,7 @@ func (s *ContactsSvcImpl) UpdateWithContext(ctx context.Context, params *UpdateC
 // require a breaking change
 func (r UpdateContactRequest) MarshalJSON() ([]byte, error) {
 	type Alias UpdateContactRequest
-	aux := make(map[string]interface{})
+	aux := make(map[string]any)
 
 	aux["id"] = r.Id
 	if r.Email != "" {
@@ -373,10 +373,9 @@ func (r UpdateContactRequest) MarshalJSON() ([]byte, error) {
 		aux["unsubscribed"] = r.Unsubscribed
 	}
 	// Include properties if provided (for global contacts)
-	if r.Properties != nil && len(r.Properties) > 0 {
+	if len(r.Properties) > 0 {
 		aux["properties"] = r.Properties
 	}
 
 	return json.Marshal(aux)
 }
-

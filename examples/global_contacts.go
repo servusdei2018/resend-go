@@ -44,7 +44,7 @@ func globalContactsExample() {
 		Email:     "user@example.com",
 		FirstName: "John",
 		LastName:  "Doe",
-		Properties: map[string]interface{}{
+		Properties: map[string]any{
 			"tier":          "premium",
 			"role":          "admin",
 			"signup_source": "website",
@@ -90,7 +90,7 @@ func globalContactsExample() {
 	updateParams := &resend.UpdateContactRequest{
 		Id:        created.Id,
 		FirstName: "Jane",
-		Properties: map[string]interface{}{
+		Properties: map[string]any{
 			"tier":   "enterprise",
 			"role":   "owner",
 			"active": "true", // Use string, not boolean
@@ -129,7 +129,7 @@ func globalContactsExample() {
 		Email:     "segmented@example.com",
 		FirstName: "Segmented",
 		LastName:  "User",
-		Properties: map[string]interface{}{
+		Properties: map[string]any{
 			"source": "landing_page",
 		},
 	}

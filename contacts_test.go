@@ -20,7 +20,7 @@ func TestCreateContact(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"object": "contact",
@@ -96,7 +96,7 @@ func TestRemoveContact(t *testing.T) {
 		testMethod(t, r, http.MethodDelete)
 		w.WriteHeader(http.StatusOK)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"object": "contact",
@@ -205,7 +205,7 @@ func TestUpdateContactById(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"data": {
@@ -243,7 +243,7 @@ func TestUpdateContactUnsubscribedFalse(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"data": {
@@ -283,7 +283,7 @@ func TestUpdateContactUnsubscribedNil(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"data": {
@@ -322,7 +322,7 @@ func TestUpdateContactByEmail(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"data": {
@@ -450,7 +450,7 @@ func TestCreateGlobalContact(t *testing.T) {
 		Email:     "global@example.com",
 		FirstName: "Global",
 		LastName:  "Contact",
-		Properties: map[string]interface{}{
+		Properties: map[string]any{
 			"tier":          "premium",
 			"role":          "admin",
 			"signup_source": "website",
@@ -581,7 +581,7 @@ func TestUpdateGlobalContact(t *testing.T) {
 		Email:     "updated@example.com",
 		FirstName: "Updated",
 		LastName:  "Name",
-		Properties: map[string]interface{}{
+		Properties: map[string]any{
 			"tier": "enterprise",
 		},
 	}
@@ -608,7 +608,7 @@ func TestRemoveGlobalContact(t *testing.T) {
 		testMethod(t, r, http.MethodDelete)
 		w.WriteHeader(http.StatusOK)
 
-		var ret interface{}
+		var ret any
 		ret = `{
 			"object": "contact",
 			"id": "479e3145-dd38-476b-932c-529ceb705947",

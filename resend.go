@@ -112,7 +112,7 @@ func NewCustomClient(httpClient *http.Client, apiKey string) *Client {
 // NewRequestWithOptions builds and returns a new HTTP request object
 // based on the given arguments and options
 // It is used to set additional options like idempotency key
-func (c *Client) NewRequestWithOptions(ctx context.Context, method, path string, params interface{}, options Options) (*http.Request, error) {
+func (c *Client) NewRequestWithOptions(ctx context.Context, method, path string, params any, options Options) (*http.Request, error) {
 	req, err := c.NewRequest(ctx, method, path, params)
 
 	if err != nil {
@@ -138,7 +138,7 @@ func (c *Client) NewRequestWithOptions(ctx context.Context, method, path string,
 
 // NewRequest builds and returns a new HTTP request object
 // based on the given arguments
-func (c *Client) NewRequest(ctx context.Context, method, path string, params interface{}) (*http.Request, error) {
+func (c *Client) NewRequest(ctx context.Context, method, path string, params any) (*http.Request, error) {
 	u, err := c.BaseURL.Parse(path)
 	if err != nil {
 		return nil, err
@@ -173,7 +173,7 @@ func (c *Client) NewRequest(ctx context.Context, method, path string, params int
 }
 
 // Perform sends the request to the Resend API
-func (c *Client) Perform(req *http.Request, ret interface{}) (*http.Response, error) {
+func (c *Client) Perform(req *http.Request, ret any) (*http.Response, error) {
 	resp, err := c.client.Do(req)
 	if err != nil {
 		return nil, err

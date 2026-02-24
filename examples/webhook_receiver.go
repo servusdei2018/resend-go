@@ -55,7 +55,7 @@ func webhookReceiverExample() {
 		}
 
 		// Parse the verified payload
-		var payload map[string]interface{}
+		var payload map[string]any
 		if err := json.Unmarshal(body, &payload); err != nil {
 			log.Printf("Error parsing JSON: %v", err)
 			http.Error(w, "Invalid JSON payload", http.StatusBadRequest)

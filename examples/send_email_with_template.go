@@ -67,7 +67,7 @@ func sendEmailWithTemplateExample() {
 		To: []string{"delivered@resend.dev"},
 		Template: &resend.EmailTemplate{
 			Id: template.Id,
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"userName":     "Alice Johnson",
 				"companyName":  "Acme Corporation",
 				"messageCount": 12,
@@ -86,7 +86,7 @@ func sendEmailWithTemplateExample() {
 		To: []string{"delivered@resend.dev"},
 		Template: &resend.EmailTemplate{
 			Id: "welcome", // Using alias instead of ID
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"userName":     "Bob Smith",
 				"companyName":  "Tech Startup Inc",
 				"messageCount": 3,
@@ -109,7 +109,7 @@ func sendEmailWithTemplateExample() {
 		ReplyTo: "noreply@resend.dev",
 		Template: &resend.EmailTemplate{
 			Id: template.Id,
-			Variables: map[string]interface{}{
+			Variables: map[string]any{
 				"userName":     "Charlie Brown",
 				"companyName":  "Example LLC",
 				"messageCount": 7,

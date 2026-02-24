@@ -19,7 +19,7 @@ const (
 type TemplateVariable struct {
 	Key           string       `json:"key"`
 	Type          VariableType `json:"type"`
-	FallbackValue interface{}  `json:"fallback_value,omitempty"`
+	FallbackValue any  `json:"fallback_value,omitempty"`
 }
 
 // CreateTemplateRequest is the request payload for creating a template
@@ -30,7 +30,7 @@ type CreateTemplateRequest struct {
 	Alias     string              `json:"alias,omitempty"`
 	From      string              `json:"from,omitempty"`
 	Subject   string              `json:"subject,omitempty"`
-	ReplyTo   interface{}         `json:"reply_to,omitempty"` // string or []string
+	ReplyTo   any         `json:"reply_to,omitempty"` // string or []string
 	Html      string              `json:"html"`
 	Text      string              `json:"text,omitempty"`
 	Variables []*TemplateVariable `json:"variables,omitempty"`
@@ -50,7 +50,7 @@ type UpdateTemplateRequest struct {
 	Alias     string              `json:"alias,omitempty"`
 	From      string              `json:"from,omitempty"`
 	Subject   string              `json:"subject,omitempty"`
-	ReplyTo   interface{}         `json:"reply_to,omitempty"` // string or []string
+	ReplyTo   any         `json:"reply_to,omitempty"` // string or []string
 	Html      string              `json:"html"`
 	Text      string              `json:"text,omitempty"`
 	Variables []*TemplateVariable `json:"variables,omitempty"`
@@ -104,7 +104,7 @@ type TemplateVariableResponse struct {
 	Id            string       `json:"id"`
 	Key           string       `json:"key"`
 	Type          VariableType `json:"type"`
-	FallbackValue interface{}  `json:"fallback_value"`
+	FallbackValue any  `json:"fallback_value"`
 	CreatedAt     string       `json:"created_at"`
 	UpdatedAt     string       `json:"updated_at"`
 }
@@ -121,7 +121,7 @@ type Template struct {
 	PublishedAt string                      `json:"published_at"`
 	From        string                      `json:"from"`
 	Subject     string                      `json:"subject"`
-	ReplyTo     interface{}                 `json:"reply_to"` // string, []string, or null
+	ReplyTo     any                 `json:"reply_to"` // string, []string, or null
 	Html        string                      `json:"html"`
 	Text        string                      `json:"text"`
 	Variables   []*TemplateVariableResponse `json:"variables"`

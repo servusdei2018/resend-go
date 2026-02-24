@@ -30,13 +30,13 @@ type ContactProperty struct {
 	Object        string      `json:"object"`
 	CreatedAt     string      `json:"created_at"`
 	Type          string      `json:"type"`
-	FallbackValue interface{} `json:"fallback_value"`
+	FallbackValue any `json:"fallback_value"`
 }
 
 type CreateContactPropertyRequest struct {
 	Key           string      `json:"key"`
 	Type          string      `json:"type"`
-	FallbackValue interface{} `json:"fallback_value"`
+	FallbackValue any `json:"fallback_value"`
 }
 
 type CreateContactPropertyResponse struct {
@@ -46,7 +46,7 @@ type CreateContactPropertyResponse struct {
 
 type UpdateContactPropertyRequest struct {
 	Id            string      `json:"-"`
-	FallbackValue interface{} `json:"fallback_value"`
+	FallbackValue any `json:"fallback_value"`
 }
 
 type UpdateContactPropertyResponse struct {

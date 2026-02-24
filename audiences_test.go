@@ -20,7 +20,7 @@ func TestCreateAudience(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"object": "segment",
@@ -86,7 +86,7 @@ func TestRemoveAudience(t *testing.T) {
 		testMethod(t, r, http.MethodDelete)
 		w.WriteHeader(http.StatusOK)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"object": "segment",

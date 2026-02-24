@@ -17,7 +17,7 @@ func TestCreateBroadcast(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"id": "49a3999c-0ce1-4ea6-ab68-afcd6dc2e794"
@@ -48,7 +48,7 @@ func TestCreateAndSendBroadcast(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"id": "49a3999c-0ce1-4ea6-ab68-afcd6dc2e794"
@@ -80,7 +80,7 @@ func TestCreateAndScheduleBroadcast(t *testing.T) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"id": "49a3999c-0ce1-4ea6-ab68-afcd6dc2e794"
@@ -279,7 +279,7 @@ func TestRemoveBroadcast(t *testing.T) {
 		testMethod(t, r, http.MethodDelete)
 		w.WriteHeader(http.StatusOK)
 
-		var ret interface{}
+		var ret any
 		ret = `
 		{
 			"object": "broadcast",
