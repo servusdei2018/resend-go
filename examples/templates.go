@@ -82,7 +82,6 @@ func templatesExample() {
 	}
 	fmt.Printf("Created full template: %s (object: %s)\n", fullTemplate.Id, fullTemplate.Object)
 
-
 	// Get a template by ID
 	retrievedTemplate, err := client.Templates.GetWithContext(ctx, template.Id)
 	if err != nil {

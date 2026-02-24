@@ -48,9 +48,9 @@ type RemoveContactOptions struct {
 }
 
 type CreateContactRequest struct {
-	Email      string `json:"email"`
-	AudienceId string `json:"audience_id,omitempty"` // Deprecated: Optional, use Segments API for contact organization
-	Unsubscribed bool `json:"unsubscribed,omitempty"`
+	Email        string `json:"email"`
+	AudienceId   string `json:"audience_id,omitempty"` // Deprecated: Optional, use Segments API for contact organization
+	Unsubscribed bool   `json:"unsubscribed,omitempty"`
 	FirstName    string `json:"first_name,omitempty"`
 	LastName     string `json:"last_name,omitempty"`
 	// Properties are custom key-value pairs for global contacts (when audience_id is omitted).
@@ -72,7 +72,7 @@ type UpdateContactRequest struct {
 	// Non-string values (numbers, booleans, etc.) will be rejected by the API with a validation error.
 	// Example: Properties: map[string]any{"tier": "premium", "age": "30", "active": "true"}
 	Properties      map[string]any `json:"properties,omitempty"`
-	unsubscribedSet bool                   `json:"-"`
+	unsubscribedSet bool           `json:"-"`
 }
 
 // Temporary setter for the `unsubscribed` field. This is here
@@ -108,13 +108,13 @@ type ListContactsResponse struct {
 }
 
 type Contact struct {
-	Id           string                 `json:"id"`
-	Email        string                 `json:"email"`
-	Object       string                 `json:"object"`
-	FirstName    string                 `json:"first_name"`
-	LastName     string                 `json:"last_name"`
-	CreatedAt    string                 `json:"created_at"`
-	Unsubscribed bool                   `json:"unsubscribed"`
+	Id           string         `json:"id"`
+	Email        string         `json:"email"`
+	Object       string         `json:"object"`
+	FirstName    string         `json:"first_name"`
+	LastName     string         `json:"last_name"`
+	CreatedAt    string         `json:"created_at"`
+	Unsubscribed bool           `json:"unsubscribed"`
 	Properties   map[string]any `json:"properties,omitempty"` // Custom properties for global contacts (currently API only returns string values)
 }
 

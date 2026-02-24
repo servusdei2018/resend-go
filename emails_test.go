@@ -527,8 +527,8 @@ func TestSendEmailWithTemplate(t *testing.T) {
 	})
 
 	req := &SendEmailRequest{
-		From: "sender@example.com",
-		To:   []string{"recipient@example.com"},
+		From:    "sender@example.com",
+		To:      []string{"recipient@example.com"},
 		Subject: "Welcome!",
 		Template: &EmailTemplate{
 			Id: "welcome-template",
@@ -574,8 +574,8 @@ func TestSendEmailWithTemplateAndVariables(t *testing.T) {
 	})
 
 	req := &SendEmailRequest{
-		From: "noreply@example.com",
-		To:   []string{"john@example.com"},
+		From:    "noreply@example.com",
+		To:      []string{"john@example.com"},
 		Subject: "Welcome to our service",
 		Template: &EmailTemplate{
 			Id: "user-welcome",
@@ -622,8 +622,8 @@ func TestSendEmailWithTemplateByAlias(t *testing.T) {
 	})
 
 	req := &SendEmailRequest{
-		From: "team@example.com",
-		To:   []string{"user@example.com"},
+		From:    "team@example.com",
+		To:      []string{"user@example.com"},
 		Subject: "Hello!",
 		Template: &EmailTemplate{
 			Id: "welcome-v2",
@@ -728,8 +728,8 @@ func TestSendEmailWithTemplateAndContext(t *testing.T) {
 
 	ctx := context.Background()
 	req := &SendEmailRequest{
-		From: "sender@example.com",
-		To:   []string{"recipient@example.com"},
+		From:    "sender@example.com",
+		To:      []string{"recipient@example.com"},
 		Subject: "Context Test",
 		Template: &EmailTemplate{
 			Id: "context-template",
@@ -776,8 +776,8 @@ func TestSendEmailWithTemplateComplexVariables(t *testing.T) {
 	})
 
 	req := &SendEmailRequest{
-		From: "sender@example.com",
-		To:   []string{"recipient@example.com"},
+		From:    "sender@example.com",
+		To:      []string{"recipient@example.com"},
 		Subject: "Complex Variables Test",
 		Template: &EmailTemplate{
 			Id: "complex-template",

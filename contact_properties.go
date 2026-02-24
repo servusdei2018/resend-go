@@ -25,18 +25,18 @@ type ContactPropertiesSvcImpl struct {
 }
 
 type ContactProperty struct {
-	Id            string      `json:"id"`
-	Key           string      `json:"key"`
-	Object        string      `json:"object"`
-	CreatedAt     string      `json:"created_at"`
-	Type          string      `json:"type"`
-	FallbackValue any `json:"fallback_value"`
+	Id            string `json:"id"`
+	Key           string `json:"key"`
+	Object        string `json:"object"`
+	CreatedAt     string `json:"created_at"`
+	Type          string `json:"type"`
+	FallbackValue any    `json:"fallback_value"`
 }
 
 type CreateContactPropertyRequest struct {
-	Key           string      `json:"key"`
-	Type          string      `json:"type"`
-	FallbackValue any `json:"fallback_value"`
+	Key           string `json:"key"`
+	Type          string `json:"type"`
+	FallbackValue any    `json:"fallback_value"`
 }
 
 type CreateContactPropertyResponse struct {
@@ -45,8 +45,8 @@ type CreateContactPropertyResponse struct {
 }
 
 type UpdateContactPropertyRequest struct {
-	Id            string      `json:"-"`
-	FallbackValue any `json:"fallback_value"`
+	Id            string `json:"-"`
+	FallbackValue any    `json:"fallback_value"`
 }
 
 type UpdateContactPropertyResponse struct {

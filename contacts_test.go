@@ -429,6 +429,7 @@ func TestUpdateContactAudienceIdMissing(t *testing.T) {
 	assert.Equal(t, "123123123", resp.Data.Id)
 	assert.Equal(t, "Updated First Name", resp.Data.FirstName)
 }
+
 // Global Contacts Tests
 
 func TestCreateGlobalContact(t *testing.T) {
